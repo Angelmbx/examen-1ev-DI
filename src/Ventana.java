@@ -88,8 +88,36 @@ public class Ventana extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
+        if (e.getSource().equals(btProcesarFrase)){
+            String frase =textField1.getText();
+            //numero de letras
+            textField2.setText(String.valueOf(frase.trim().length()));
+            //numero de palabras
+            String [] palabras = frase.split("");
+            int longitud = palabras.length;
+            textField3.setText(String.valueOf(longitud));
+            //frase al reves
+            StringBuilder invertido = new StringBuilder(frase);
+            textField4.setText(invertido.reverse().toString());
+            //frase separada por guiones
+            String separadasPorGuiones = frase.replace("","-");
+            textField5.setText(separadasPorGuiones);
+
+        }
+
         if (e.getSource().equals(btSalir)){
             this.dispose();
+        }
+
+        if (e.getSource().equals(btLimpiar)){
+            textField1.setText("");
+            textField2.setText("");
+            textField3.setText("");
+            textField4.setText("");
+            textField5.setText("");
+            textField6.setText("");
+
+            textField1.requestFocus();
         }
 
     }
